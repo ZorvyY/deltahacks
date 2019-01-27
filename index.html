@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel = "stylesheet" type = "text/css" href="frontstyles.css">
+  <form action="http://localhost:5000/people" method="get">
+  <title> Find Workers </title>
+</head>
+<body>
+  <div class = "header"><img src="header image.png" height='125px'></img></div>
+  <div class = "profileform margins-1">
+    <h1 > What type of help are you looking for today? </h1>
+
+    <p> Input skills and experience wanted to find potential employees </p>
+    <h2> Desired skills: </h2>
+    <input class = "margins-1" class = "flex-container"  type = "text" name="skills" rows="1" size ="50" placeholder = "Type desired skills here "></textarea>
+
+    <h2 class = "margins-1"> Experience wanted: </h2>
+          <p>  Select desired experience:
+              <select id = "myList">
+                <option value = 0 > no experience </option>
+                <option value = 1 > 1 year </option>
+                <option value = 2 > 2 years</option>
+                <option value = 3 > 3 years </option>
+                <option value = 4 > 4+ years </option>
+              </select>
+          </p>
+    <h2> Location: </h2>
+    <input class = "margins-1" class = "flex-container" type = "text" name="name" rows="1" size="50" placeholder = "Type city here "></textarea>
+    <br></br>
+    <button id = "search-button"> Search </button>
+</form>
+</div>
+</body>
+<html>

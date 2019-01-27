@@ -1,0 +1,38 @@
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+    background-color: #ff7619;
+    padding: 0px;
+    display: block;
+}
+
+.headerimg{
+    float: right;
+    display: block;
+}
+.profileform
+    
+}
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+input, textarea {
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 20px;
+    padding: 4px;
+    
+}
+
+.margins-1 {
+    text-align: center; 
+}
+
+.h2 {
+
+}

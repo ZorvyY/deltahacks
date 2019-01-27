@@ -1,0 +1,81 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="cards.css">
+
+</head>
+<body>
+    <div class="header">
+            <img src="header image.png" height='125px'>
+            <input type="text" class="search" name="searchbar" placeholder="search..">
+    </div>
+    <br>
+    <div id='employeeList'>
+
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script type="text/template" id="template">
+    <div class="flip-container">
+    <div class='card'>
+        <div class="flipper">
+            <div class="front">
+                <div class='cardname'>
+                    <h4>{{name}}</h4>
+                </div> 
+                <div class='cardskills'>
+                    <u>Skills</u>: <br>
+                    {{skillset}}
+                </div> 
+            </div>
+            <div class="back">
+                <div class='cardname'>
+                    <h4>Contact</h4>
+                </div> 
+                <div class='cardskills'>
+                    Email:
+                    {{email}}<br>
+                    Phone:<br>
+                    {{phone}}
+                </div> 
+            </div>
+        </div>
+    </div>
+        
+    </script>
+    <script>
+        $(function(){
+            function success(data){
+                var template = $('#template').html();
+                $.each(data, function() {
+                    var data = {
+                        name: this.name,
+                        skillset: this.skills,
+                        email: this.emailAdress,
+                        phone: this.phoneNumber
+                    };
+                    var info = Mustache.to_html(template, data);
+                    $('#employeeList').append(info);
+                })
+            }
+            
+            function error(data, status){
+                $.each(data, function() {
+                    console.error(this)
+
+                })
+                // console.error(status, $.parseJSON(data))
+            }
+            // $.getJSON('http://localhost:5000/people', 
+            $.ajax({
+                url: 'http://localhost:5000/people',
+                type: 'GET',
+                success: success,
+                error: error
+            })
+            
+        })
+    </script>
+</body>
+
+</html>

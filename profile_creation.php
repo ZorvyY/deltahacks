@@ -1,6 +1,18 @@
 <html>
 <head>
         <link rel="stylesheet" type="text/css" href="styles.css">
+        <!-- <script>
+        function validate(){
+            var elements = document.getElementById("profileForm").elements;
+            for (var i = 0, i< element.length; i++) {
+                elements[i] = trim(elements[i]);
+                elements[i] = elements[i].replace(/[\s.;,?%0-9]/, '');
+            }
+            // var skillset = document.getElementById("skills").value
+            // document.getElementById("skills").value = skillset.split(" ");
+            
+        }
+        </script> -->
 </head>
 <body>
 
@@ -8,10 +20,11 @@
         <img src="header image.png" height='125px'>
     </div>
     <br><br>
+    <center><h2>Create a profile:</h2></center>
     <img src="leftform" class="formleft">
     <img src="rightform" class="formright">
     <div class="centerform">
-        <form method="post" class="profileform" action="getData.php" enctype="multipart/form-data" > 
+        <form name="profileForm" method="post" class="profileform" action="http://localhost:5000/people" > 
             <div>
                 
                 <input type="text" name="name" size= "50" placeholder="  Name">

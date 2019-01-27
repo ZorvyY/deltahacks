@@ -12,7 +12,6 @@
             // for ($i = 0; i < sizeof($skillArray); $i++){
             //     $skillArray(i) = test_input($skillArray(i));
             // }
-            
         }
 
         function test_input($data) {
@@ -21,9 +20,19 @@
             $data = htmlspecialchars($data);
             return $data;
         }
-
         
-
+        $profileObj->name = $name;
+        $profileObj->location = $location;
+        $profileObj->email = $email;
+        $profileObj->phoneNumber = $phoneNumber;
+        $profileObj->skillArray = $skillArray;
+        
+        $profileJson = json_encode($profileObj);
         ?>
+        <script>
+            xmlhttp.open("POST","http://localhost:5000/people");
+            xmlhttp.setRequestHeader("Content-Type","application/Json");
+            xmlhttp.send(<?php $profileJson ?>);
+        </script>
     </body>
 </html>
